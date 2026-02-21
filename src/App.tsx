@@ -3,10 +3,13 @@
  * SPDX-License-Identifier: Apache-2.0
  */
 
+import { useState } from 'react';
 import { motion } from 'motion/react';
 import { Construction } from 'lucide-react';
 
 export default function App() {
+  const [secretVisible, setSecretVisible] = useState(false);
+
   return (
     <div className="min-h-screen bg-[#050505] text-neutral-50 font-sans selection:bg-fuchsia-500/30 relative overflow-hidden flex flex-col">
       {/* Noise Texture Overlay */}
@@ -67,6 +70,13 @@ export default function App() {
           <div className="mt-12 h-1 w-32 mx-auto bg-white/10 rounded-full overflow-hidden">
             <div className="h-full w-1/2 bg-gradient-to-r from-transparent via-white to-transparent animate-[shimmer_2s_infinite]" />
           </div>
+
+          <p 
+            onClick={() => setSecretVisible(true)}
+            className={`mt-8 text-[10px] uppercase tracking-widest text-neutral-600 cursor-pointer transition-all duration-700 select-none ${secretVisible ? 'opacity-100 blur-0' : 'opacity-0 blur-sm hover:opacity-20'}`}
+          >
+            может быть когда приедет айфон будет доступно
+          </p>
         </motion.div>
       </main>
     </div>
